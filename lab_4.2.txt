@@ -1,0 +1,23 @@
+def my_shiny_new_decorator(function_to_decorate):
+    def wrapper(*args):
+        temp = function_to_decorate(*args)
+        if temp == 0:
+            print("Нет")
+        elif temp > 10:
+            print("Очень много")
+        return temp
+    return wrapper
+
+a = input().split()
+
+@my_shiny_new_decorator
+def count(a):
+    counter = 0
+    a = list(a)
+    for i in range(len(a)):
+        b = int(a[i])
+        if b % 2 == 0:
+            counter += 1
+    return counter
+
+print(count(a))
