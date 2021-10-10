@@ -5,7 +5,7 @@ class Mother():
 
 class Daughter(Mother):
     def __str__(self):
-        print('I\'m not mother')
+        return('I\'m not mother')
 
 
 if __name__ == "__main__":
