@@ -1,0 +1,20 @@
+class Animal():
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Zebra(Animal):
+    def __str__(self):
+        return 'age: {}, name: {}, люблю траву кушать'.format(self.age, self.name)
+
+class Dolphin(Animal):
+    def __str__(self):
+        return 'age: {}, name: {}, люблю траву кушать'.format(self.age, self.name)
+
+if __name__ == "__main__":
+    z = Zebra(5, "Martin")
+    d = Dolphin(14 ,"Danila")
+
+    print(z)
+    print(d)
