@@ -1,0 +1,26 @@
+import pickle
+from collections import deque
+
+picklestring = pickle.dumps(deque)
+print(pickle.loads(picklestring))
+
+data = pickle.dumps(iter)
+print(pickle.loads(data))
+
+p_print = pickle.dumps(print)
+print(pickle.loads(p_print))
+
+class Nike_clothes:
+    def __init__(self, cost_of_material, size):
+        self.cost_of_material = cost_of_material
+        self.size = size
+
+    def price(self):
+        return self.cost_of_material * self.size
+
+    def discount(self):
+        cur_price = Nike_clothes.price(self) * 0.9
+        return cur_price
+
+p_class = pickle.dumps(Nike_clothes)
+print(pickle.loads(p_class))

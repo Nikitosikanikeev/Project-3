@@ -1,0 +1,5 @@
+a = [1, 2, 3, 4, 5]
+it = iter(a)
+print(next(it))
+a[1] = 9
+print(next(it))
