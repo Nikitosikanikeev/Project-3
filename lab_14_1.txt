@@ -1,0 +1,22 @@
+import socket                            # Подключаем
+import threading
+
+sock = socket.socket()                   # Создаём
+sock.connect(("<address>", "<port>"))    # Присоединяемся
+
+sock.send("some text data".encode())     # Отправка
+data = sock.recv(1024) # Ответ
+data = data.decode("utf8")# раскодируем сообщение в строку
+
+def listener(sock):
+    while sock.fileno() != -1:
+        data = sock.recv(1000)
+        if len(data) > 0:
+            print(data.decode())
+
+sock = socket.socket()                   # Создаём сокет
+sock.connect(('81.200.31.248', 9000))    # Соединяемся
+
+threads = [threading.Thread(target=listener, args=(sock,))] #запускаем пассивное прослушивание входящих сообщений
+for thread in threads:
+    thread.start()
